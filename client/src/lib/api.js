@@ -13,4 +13,4 @@ export async function api(path, opts = {}) {
 
 export const post = (path, body = {}) => api(path, { method: 'POST', body: JSON.stringify(body) });
 
-export const streamUrl = () => `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/stream`;
+export const streamUrl = () => import.meta.env.VITE_STREAM_URL || `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/stream`;
